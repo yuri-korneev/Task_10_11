@@ -69,6 +69,18 @@ const display = () => {
     else if (color == 'светло-коричневый') {
       fruit.classList.add('fruit_lightbrown');   
     }
+    else if (color == 'красный') {
+      fruit.classList.add('fruit_red');   
+    }
+    else if (color == 'оранжевый') {
+      fruit.classList.add('fruit_orange');   
+    }
+    else if (color == 'синий') {
+      fruit.classList.add('fruit_blue');   
+    }
+    else if (color == 'голубой') {
+      fruit.classList.add('fruit_lightblue');   
+    }
     else {
         fruit.classList.add('fruit_black');      
     }
@@ -125,7 +137,7 @@ shuffleButton.addEventListener('click', () => {
 
 // фильтрация массива
 const filterFruits = () => {
-  fruits = fruits.filter((element) => {
+  fruits = fruits.filter((element) => {   
     // TODO: допишите функцию
    return element.weight >= minWeightInput.value && element.weight <= maxWeightInput.value;
   });  
@@ -134,8 +146,17 @@ const filterFruits = () => {
 
 filterButton.addEventListener('click', () => {
   fruits = JSON.parse(fruitsJSON);
-  filterFruits();
-  display();
+
+  if (minWeightInput.value === '' || maxWeightInput.value === '') {
+    alert('Поверьте, заполнены ли все поля');
+    display();
+  }
+  else {
+    filterFruits();
+    display();
+  }
+
+  
 });
 
 /*** СОРТИРОВКА ***/
@@ -263,8 +284,8 @@ sortActionButton.addEventListener('click', () => {
 addActionButton.addEventListener('click', () => {
   // TODO: создание и добавление нового фрукта в массив fruits
   // необходимые значения берем из kindInput, colorInput, weightInput
-  if ((kindInput.value === '') || (colorInput.value === '') || (weightInput.value === '')) {
-    alert('Поверьте, заполнены ли все поля')
+  if (kindInput.value === '' || colorInput.value === '' || weightInput.value === '') {
+    alert('Поверьте, заполнены ли все поля');
   } else {
     fruits.push({
       "kind": kindInput.value,

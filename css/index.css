@@ -131,6 +131,22 @@ main {
   background: black;
 }
 
+.fruit_red {
+  background: red;
+}
+
+.fruit_red {
+  background: orange;
+}
+
+.fruit_blue {
+  background: blue;
+}
+
+.fruit_lightblue {
+  background: #42AAFF;
+}
+
 .fruit__info {
   display: flex;
   justify-content: center;
